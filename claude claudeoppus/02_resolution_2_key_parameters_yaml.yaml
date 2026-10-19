@@ -1,0 +1,85 @@
+# ERC RESOLUTION 2: REFERENCE PARAMETERS & BENCHMARKS (GROUND-TRUTH YAML)
+# Copy-paste this block directly into Claude prompts to initialize the exact parameters for Resolution 2.
+
+jurisdiction: "Republic of the Philippines Energy Regulatory Commission"
+proceeding: "ERC Case No. 2026-015 RM / DOE DC2026-06-0013"
+resolution_title: "Resolution Adopting the Key Parameters and Benchmark Values for the Gas Auction Threshold Price (GATP)"
+
+forex_reference:
+  usd_php_rate: 56.00 # PhP per USD baseline
+
+technologies:
+  ccgt_combined_cycle:
+    reference_capacity_mw: 1200 # MW (range: 1,000 - 1,350 MW)
+    capacity_factor_baseline: 0.45 # 45.0%
+    capacity_factor_tor_range: [0.37, 0.42] # 37% - 42% (Luzon TOR)
+    aipc_brownfield_usd_per_kw: 600.00 # USD/kW (PhP 33,600/kW)
+    aipc_greenfield_usd_per_kw: 900.00 # USD/kW (PhP 50,400/kW)
+    fixed_om_usd_per_kw_yr: 13.71 # USD/kW-yr (PhP 767.76/kW-yr)
+    variable_non_fuel_om_usd_per_mwh: 2.00 # USD/MWh (PhP 0.112/kWh)
+    ga_overhead_percent: 0.06 # 6.0% of (FOM + VOM)
+    construction_period_years: 3.0 # 36 months
+    operating_life_years: 30.0 # years
+    debt_equity_ratio: [0.70, 0.30] # 70% Debt : 30% Equity
+    pre_tax_cost_of_debt: 0.08 # 8.00% p.a.
+    debt_repayment_period_years: 15.0 # 15 years
+    required_equity_return_post_tax: 0.12 # 12.00% p.a.
+    wacc_target_pre_tax: 0.10 # 10.00% p.a.
+    heat_rate_cap_mmbtu_per_kwh: 0.006100 # 6,100 BTU/kWh (New-Build H/J Class)
+    heat_rate_cap_existing_mmbtu_per_kwh: 0.006350 # 6,350 BTU/kWh (Existing F Class)
+    
+  ocgt_open_cycle_peaker:
+    reference_capacity_mw: 200 # MW (range: 150 - 300 MW)
+    capacity_factor_baseline: 0.20 # 20.0%
+    aipc_brownfield_usd_per_kw: 450.00 # USD/kW
+    aipc_greenfield_usd_per_kw: 520.00 # USD/kW
+    fixed_om_usd_per_kw_yr: 8.50 # USD/kW-yr
+    variable_non_fuel_om_usd_per_mwh: 4.50 # USD/MWh
+    construction_period_years: 2.0 # 24 months
+    operating_life_years: 25.0
+    debt_equity_ratio: [0.70, 0.30]
+    pre_tax_cost_of_debt: 0.08
+    debt_repayment_period_years: 15.0
+    wacc_target_pre_tax: 0.105 # 10.50% p.a.
+    heat_rate_cap_mmbtu_per_kwh: 0.009800 # 9,800 BTU/kWh
+
+  gas_reciprocating_engine_gre:
+    reference_capacity_mw: 100 # MW (modular: 50 - 150 MW)
+    capacity_factor_baseline: 0.40 # 40.0%
+    aipc_brownfield_usd_per_kw: 750.00 # USD/kW
+    aipc_greenfield_usd_per_kw: 850.00 # USD/kW
+    fixed_om_usd_per_kw_yr: 16.50 # USD/kW-yr
+    variable_non_fuel_om_usd_per_mwh: 3.80 # USD/MWh
+    construction_period_years: 1.5 # 18 months
+    operating_life_years: 25.0
+    debt_equity_ratio: [0.70, 0.30]
+    pre_tax_cost_of_debt: 0.08
+    debt_repayment_period_years: 15.0
+    wacc_target_pre_tax: 0.1025 # 10.25% p.a.
+    heat_rate_cap_mmbtu_per_kwh: 0.008000 # 8,000 BTU/kWh
+
+logistics_cost_caps_cllc:
+  fsru_regasification_terminal_fee_cap_usd_per_mmbtu: 1.50 # Hard cap ($2.93 historical billed)
+  bog_evaporative_loss_cap_percent_per_day: 0.0010 # 0.10%/day (max allowable: 0.15%/day)
+  pipeline_transport_cap_usd_per_mmbtu: 0.40 # USD/MMBtu
+  marine_trucking_sslng_cap_usd_per_mmbtu: 0.95 # USD/MMBtu
+  storage_handling_cap_usd_per_mmbtu: 0.30 # USD/MMBtu
+
+fuel_benchmarking_and_transition:
+  jkm_correlation_coefficient: 0.884 # Platts JKM correlation with Meralco gas rates
+  brent_slope_formula: "0.125 * Brent + 0.50" # USD/MMBtu
+  indigenous_gas_base_price_php_per_kwh: 3.5788 # Malampaya prevailing
+  imported_lng_base_price_php_per_kwh: 5.6894 # Landed LNG prevailing
+  malampaya_depletion_schedule:
+    year_2026: 0.60 # 60% indigenous
+    year_2028: 0.40 # 40% indigenous
+    year_2030: 0.20 # 20% indigenous
+    year_2034: 0.00 # 0% indigenous (100% LNG)
+  fuel_vat_rate_lng_only: 0.12 # 12% on LNG; 0% on Malampaya (RA 12120 / BIR RR 002-2026)
+
+settlement_and_incentives:
+  fuel_savings_sharing_ratio: [0.80, 0.20] # 80% Consumer / 20% GenCo (Option C)
+  mmdq_capacity_factor: 0.60 # 60.0% Minimum Mid-merit Dispatch Quantity
+  make_whole_recovery_sunset_years: 15.0 # Max recovery duration
+  wesm_preliminary_settlement_days: 7 # business days
+  wesm_final_settlement_days: 18 # business days
